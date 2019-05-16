@@ -1,0 +1,27 @@
+﻿@model IEnumerable<JustinandKelley.Models.FAQ>
+@{
+    ViewBag.Title = "Q&A";
+}
+<h2>
+    Q&A</h2>
+    <br />
+<p>
+    @Html.ActionLink("Ask New Question", "Create")
+</p>
+@foreach (var item in Model)
+{
+    <br />
+    <div>
+    @{
+    if (User.Identity.IsAuthenticated)
+    {
+    <span>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })</span>
+    }
+}
+        <h2>@Html.DisplayFor(modelItem => item.Question)</h2>
+        <br />
+        <p>@MvcHtmlString.Create(item.Answer)</p>
+    </div>
+}

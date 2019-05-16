@@ -1,0 +1,20 @@
+﻿@model JustinandKelley.Models.AuditHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AuditHistory</legend>
+
+    <div class="display-label">AuditURL</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AuditURL)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
